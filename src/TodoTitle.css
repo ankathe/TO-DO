@@ -1,0 +1,12 @@
+.title {
+    font-size: 32px;
+    padding: 10px;
+    color: #41474a;
+    text-align: center;
+    font-family: 'Nunito';
+}
+
+.titulo span {
+    font-weight: 700;
+}
+

@@ -1,0 +1,21 @@
+.button {
+    border: none;
+    background-color: #72CAAF;
+    border-radius: 20px;
+    padding: 15px;
+    font-size: 25px;
+    justify-content: center;
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transform: rotate(0);
+    transition: 0.3s ease;
+}
+
+.button:hover {
+    background-color: #40c39c;
+    box-shadow: 6px 6px 20px -1px rgba(160, 172, 169, 0.15),
+        -6px -6px 20px -1px rgba(148, 211, 194, 0.3);
+    transform: rotate(180deg);
+}
+
+
