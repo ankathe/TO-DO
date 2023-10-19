@@ -8,17 +8,30 @@ import { TodoItem } from "./TodoItem";
 import { CreateTodoButton } from "./CreateTodoButton";
 import "./App.css";
 
-const defaulTodos = [
-  { text: "Cut onion", completed: false },
-  { text: "Make course beginner React.js", completed: true },
-  { text: "Cry whit baby-cried", completed: true },
-  { text: "Other todo", completed: true },
-  { text: "aprender javascript", completed: false },
-];
+// const defaulTodos = [
+//   { text: "Cut onion", completed: false },
+//   { text: "Make course beginner React.js", completed: true },
+//   { text: "Cry whit baby-cried", completed: true },
+//   { text: "Other todo", completed: true },
+//   { text: "aprender javascript", completed: false },
+// ];
+
+// localStorage.setItem('TODOS_V1', JSON.stringify(defaulTodos));
 
 function App() {
-  const [todos, setTodos] = React.useState(defaulTodos);
-  const [searchValue, setSearchValue] = React.useState("");
+  const localStorageTodos = localStorage.getItem('TODOS_V1');
+  
+  let parsedTodos;
+  
+  if(!localStorageTodos){
+    localStorage.setItem('TODOS_V1', JSON.stringify([]));
+    parsedTodos = [];
+  }else{
+    parsedTodos = JSON.parse(localStorageTodos);
+  }
+
+  const [todos, setTodos] = React.useState(parsedTodos);
+  const [searchValue, setSearchValue] = React.useState('');
 
   const completed = todos.filter((todo) => !!todo.completed).length;
   const allTodo = todos.length;
@@ -27,6 +40,10 @@ function App() {
     return todo.text.toLowerCase().includes(searchValue.toLocaleLowerCase());
   });
 
+  const saveTodos = (newTodos) => {
+    localStorage.setItem('TODOS_V1', JSON.stringify(newTodos));
+    setTodos(newTodos);
+  };
 
   const completeTodo = (text) => {
       const newTodos = [...todos];
@@ -34,16 +51,16 @@ function App() {
           (todo) => todo.text == text
           );
       newTodos[todoIndex].completed = true;
-      setTodos(newTodos);
+      saveTodos(newTodos);
   }  
-
+  
   const deleteTodo = (text) => {
     const newTodos = [...todos];
     const todoIndex = newTodos.findIndex(
         (todo) => todo.text == text
         );
     newTodos.splice(todoIndex, 1);
-    setTodos(newTodos);
+    saveTodos(newTodos);
 } 
 
   document.body.style.backgroundImage =
