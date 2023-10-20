@@ -9,7 +9,7 @@ function TodoSearch({
     return(
     <input 
         placeholder="what is your next To-Do?" 
-        className='todo-search' 
+        className="todo-search" 
         value ={searchValue}
         onChange={(event)=>{
             setSearchValue(event.target.value);
