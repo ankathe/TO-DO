@@ -8,17 +8,6 @@ import { TodoItem } from "../TodoItem";
 import { CreateTodoButton } from "../CreateTodoButton";
 import { useLocalStorage } from "./useLocalStorage";
 
-// const defaulTodos = [
-//   { text: "Cut onion", completed: false },
-//   { text: "Make course beginner React.js", completed: true },
-//   { text: "Cry whit baby-cried", completed: true },
-//   { text: "Other todo", completed: true },
-//   { text: "aprender javascript", completed: false },
-// ];
-
-// localStorage.setItem('TODOS_V1', JSON.stringify(defaulTodos));
-
-
 
 function App() {
   const [todos, saveTodos] = useLocalStorage('TODOS_V1', []);
