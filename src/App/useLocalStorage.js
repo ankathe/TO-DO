@@ -22,3 +22,13 @@ return [item, saveItem];
 }
 
 export { useLocalStorage };
+
+// const defaultTodos = [
+// {text: 'cortar cebolla', completed: true},
+// {text: 'tomar el curso', completed: false},
+// {text: 'estar feliz', completed: true},
+// {text: 'lalalalala', completed:false},
+// {text: 'usar estados derivados', completed:true}
+// ];
+
+// localStorage.setItem('TODOS_V1', JSON.stringify(defaultTodos));
